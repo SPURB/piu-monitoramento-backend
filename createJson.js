@@ -7,7 +7,7 @@ function createJsFromExcel(inputExcel, tableName, outputJS){
 	var myObj = XLSX.utils.sheet_to_json(worksheet,{raw:true});
 
 	myObj.map(function(index){ 
-			monitoramento.push(index); 
+		monitoramento.push(index); 
 	})
 	var json = JSON.stringify(monitoramento);
 
@@ -20,4 +20,5 @@ function createJsFromExcel(inputExcel, tableName, outputJS){
 	console.log(filePath + ' atualizado')
 }
 
-createJsFromExcel('input/monitoramento.xlsx','Plan2', 'output/monitoramento');
+createJsFromExcel('input/dadosexcel.xlsx','COMUNICACAO', 'output/monitoramento');
+createJsFromExcel('input/PIU_Documentacao.xlsx','hiperlinks', 'output/hiperlinks');

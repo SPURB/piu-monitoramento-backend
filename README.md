@@ -13,7 +13,7 @@ Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana 
 npm install 
 ```
 
-2. Converta  `input/monitoramento.xlsx` para `output/monitoramento.json`
+2. Converta  `input/dadosexcel.xlsx` e `input/PIU_Documentacao.xlsx` para `output/monitoramento.json` e `output/hiperlinks.json`
 ```
-node index.js
+node createJson.js
 ```

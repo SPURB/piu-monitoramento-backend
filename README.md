@@ -22,3 +22,8 @@ node createJson
 ```
 
 4. Utilize o `index.php` como endpoint desta aplicação
+
+### Para consumir esta API
+- A url referente a este `index.php` (ou `/`) irá retornar dois objetos: `monitoramento` e `hiperlinks`
+- `?data=monitoramento` retorna apenas `monitoramento`. [Exemplo](http://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento?data=monitoramento).
+- `?data=hiperlinks` retorna apenas `hiperlinks`. [Exemplo](http://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento?data=hiperlinks).

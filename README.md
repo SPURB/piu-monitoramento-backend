@@ -1,4 +1,4 @@
-# piu-monitoramento-backend [![Build Status](https://travis-ci.org/yubathom/piu-monitoramento-backend.svg?branch=master)](https://travis-ci.org/yubathom/piu-monitoramento-backend)
+# piu-monitoramento-backend [![Build Status](https://travis-ci.org/SPURB/piu-monitoramento-backend.svg?branch=master)](https://travis-ci.org/SPURB/piu-monitoramento-backend)
 Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana (Decreto nº 56.901, de 30 de março de 2016) - [http://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento](https://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento)
 
 ### Requisitos
@@ -11,13 +11,16 @@ git clone https://github.com/SPURB/piu-monitoramento.git
 ```
 
 ### Atualizações
-1. Altere os arquivos `input/dadosexcel.xlsx` e `input/PIU_Documentacao.xlsx` utilizando excel
+1. Altere os arquivos `input/monitoramento.xlsx` e `input/hiperlinks.xlsx` utilizando excel
 2. Atualize este repositório
 ```bash
 git add --all
 git commmit -m "Atualiza dados"
 git push
 ```
+3. Os dados podem ser acessados pelas seguintes urls:
+ - [monitoramento](https://spurb.github.io/piu-monitoramento-backend/monitoramento.json)
+ - [hiperlinks](https://spurb.github.io/piu-monitoramento-backend/hiperlinks.json)
 
 ### Crie localmente os arquivos compilados .json
 1. Instale as dependências do projeto 
@@ -29,10 +32,3 @@ npm install
 npm run build
 ```
 
-<!-- 
-4. Utilize o `index.php` como endpoint desta aplicação
-
-### Para consumir esta API
-- A url referente a este `index.php` (ou `/`) irá retornar dois objetos: `monitoramento` e `hiperlinks`
-- `?data=monitoramento` retorna apenas `monitoramento`. [Exemplo](http://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento?data=monitoramento).
-- `?data=hiperlinks` retorna apenas `hiperlinks`. [Exemplo](http://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento?data=hiperlinks). -->

@@ -1,33 +1,33 @@
-var fs = require('fs');
-var XLSX = require('xlsx');
+const fs = require('fs')
+const XLSX = require('xlsx')
 
 function createJsFromExcel(inputExcel, tableName, outputJS){
-	var worksheet = XLSX.readFile(inputExcel).Sheets[tableName];
-	var rows = XLSX.utils.sheet_to_json(worksheet,{raw:true}); //toda planilha
-	outputJson = [];
+	const worksheet = XLSX.readFile(inputExcel).Sheets[tableName]
+	const rows = XLSX.utils.sheet_to_json(worksheet,{raw:true}) //toda planilha
+	outputJson = []
 
 	rows.forEach(function(rowLine){ // para cada linha
-		var collection = Object.entries(rowLine); 
-		var output = {}
+		const collection = Object.entries(rowLine); 
+		let output = {}
 
 		collection.forEach(function(index) {
 			if(index[1] != ''){ //se não tiver dados não inclui no json final
-				output[index[0]] = index[1];
+				output[index[0]] = index[1]
 			}
-		});
-		outputJson.push(output);
+		})
+		outputJson.push(output)
 	})
 
-	var json = JSON.stringify(outputJson);
+	const json = JSON.stringify(outputJson)
 
-	var filePath = outputJS +'.json';
+	const filePath = outputJS +'.json'
 	fs.writeFile( filePath, json, 'utf8', function (err){
 		if(err){
-			console.log(err);
+			console.log(err)
 		}
 	});
 	console.log(filePath + ' atualizado')
 }
 
-createJsFromExcel('input/dadosexcel.xlsx','COMUNICACAO', 'output/monitoramento');
-createJsFromExcel('input/PIU_Documentacao.xlsx','hiperlinks', 'output/hiperlinks');
+createJsFromExcel('input/monitoramento.xlsx','COMUNICACAO', 'output/monitoramento')
+createJsFromExcel('input/hiperlinks.xlsx','hiperlinks', 'output/hiperlinks')

@@ -1,5 +1,5 @@
 # piu-monitoramento-backend
-Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana (Decreto nº 56.901, de 30 de março de 2016) - [http://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento](http://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento)
+Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana (Decreto nº 56.901, de 30 de março de 2016) - [http://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento](https://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento)
 ### Requisitos
 * Excel
 * Nodejs
@@ -18,7 +18,7 @@ npm install
 
 3. Criar os arquivos `output/monitoramento.json` e `output/hiperlinks.json`
 ```
-node createJson
+npm run build
 ```
 
 4. Utilize o `index.php` como endpoint desta aplicação

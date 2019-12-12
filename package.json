@@ -2,9 +2,8 @@
   "name": "piu-monitoramento-backend",
   "version": "1.0.0",
   "description": "Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana (Decreto nº 56.901, de 30 de março de 2016) - gestaourbana.prefeitura.sp.gov.br/piu-monitoramento",
-  "main": "createJson.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node ./createJson"
   },
   "author": "dev-spurbanismo@spurbanismo.sp.gov.br",
   "license": "GPL-3.0",

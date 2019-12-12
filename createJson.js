@@ -6,11 +6,11 @@ function createJsFromExcel(inputExcel, tableName, outputJS){
 	var rows = XLSX.utils.sheet_to_json(worksheet,{raw:true}); //toda planilha
 	outputJson = [];
 
-	rows.map(function(rowLine){ // para cada linha
+	rows.forEach(function(rowLine){ // para cada linha
 		var collection = Object.entries(rowLine); 
 		var output = {}
 
-		collection.map(function(index) {
+		collection.forEach(function(index) {
 			if(index[1] != ''){ //se não tiver dados não inclui no json final
 				output[index[0]] = index[1];
 			}

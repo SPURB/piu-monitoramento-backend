@@ -1,5 +1,5 @@
 # piu-monitoramento-backend [![Build Status](https://travis-ci.org/SPURB/piu-monitoramento-backend.svg?branch=master)](https://travis-ci.org/SPURB/piu-monitoramento-backend)
-Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana (Decreto nº 56.901, de 30 de março de 2016) - [http://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento](https://api.gestaourbana.prefeitura.sp.gov.br/piu-monitoramento)
+Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana (Decreto nº 56.901, de 30 de março de 2016) - [https://spurb.github.io/piu-monitoramento-backend/index.json](https://spurb.github.io/piu-monitoramento-backend/index.json)
 
 ### Requisitos
 * Excel

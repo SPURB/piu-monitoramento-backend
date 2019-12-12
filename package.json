@@ -1,16 +1,31 @@
 {
   "name": "piu-monitoramento-backend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana (Decreto nº 56.901, de 30 de março de 2016) - gestaourbana.prefeitura.sp.gov.br/piu-monitoramento",
   "scripts": {
-    "build": "node ./createJson"
+    "build": "node ./build"
   },
-  "author": "dev-spurbanismo@spurbanismo.sp.gov.br",
+	"author": {
+		"name": "São Paulo Urbanismo",
+		"email": "desenvolvimento@spurbanismo.sp.gov.br"
+	},
   "license": "GPL-3.0",
   "devDependencies": {
+    "fs-extra": "^8.1.0",
     "xlsx": "^0.13.3"
   },
   "bugs": {
     "url": "https://github.com/SPURB/piu-monitoramento-backend/issues"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SPURB/piu-monitoramento-backend.git"
+  },
+  "keywords": [
+    "participacao",
+    "government",
+    "sao-paulo",
+    "prefeitura",
+    "piu"
+  ]
 }

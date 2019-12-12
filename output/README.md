@@ -1,5 +1,12 @@
-Aqui serão criados os arquivos `output/monitoramento.json` e `output/hiperlinks.json`
+# API do monitoramento dos PIU's
 
-Os dados destes arquivos também podem ser consumidos pelas seguintes urls:<br>
-https://spurb.github.io/piu-monitoramento-backend/monitoramento.json<br>
-https://spurb.github.io/piu-monitoramento-backend/hiperlinks.json
+## Descrição
+Esta é a fonte dos dados do monitoramento dos Projetos de Intervenção Urbana [gestaourbana.prefeitura.sp.gov.br/piu-monitoramento](https://gestaourbana.prefeitura.sp.gov.br/piu-monitoramento)
+
+### Veja o índice dos dados disponibilizados
+ - [/index.json](https://spurb.github.io/piu-monitoramento-backend/index.json)
+
+### E os dados disponibilizados:
+- [/monitoramento.json](https://spurb.github.io/piu-monitoramento-backend/monitoramento.json)
+- [/hiperlinks.json](https://spurb.github.io/piu-monitoramento-backend/hiperlinks.json)
+

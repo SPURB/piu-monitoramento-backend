@@ -8,7 +8,6 @@ yarn-error.log*
 # builds
 output/*.json
 
-
 # Runtime data
 pids
 *.pid

@@ -3,14 +3,18 @@
   "version": "1.0.1",
   "description": "Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana (Decreto nº 56.901, de 30 de março de 2016) - gestaourbana.prefeitura.sp.gov.br/piu-monitoramento",
   "scripts": {
-    "build": "node ./build"
+    "build": "node ./build",
+    "sei": "babel-node ./sei.js"
   },
-	"author": {
-		"name": "São Paulo Urbanismo",
-		"email": "desenvolvimento@spurbanismo.sp.gov.br"
-	},
+  "author": {
+    "name": "São Paulo Urbanismo",
+    "email": "desenvolvimento@spurbanismo.sp.gov.br"
+  },
   "license": "GPL-3.0",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
     "fs-extra": "^8.1.0",
     "xlsx": "^0.13.3"
   },
@@ -27,5 +31,8 @@
     "sao-paulo",
     "prefeitura",
     "piu"
-  ]
+  ],
+  "dependencies": {
+    "puppeteer": "^2.1.1"
+  }
 }

@@ -25,7 +25,7 @@ git push
 Os dados serão atualizados nas seguintes urls:
  - [https://spurb.github.io/piu-monitoramento-backend/monitoramento.json](https://spurb.github.io/piu-monitoramento-backend/monitoramento.json)
  - [https://spurb.github.io/piu-monitoramento-backend/hiperlinks.json](https://spurb.github.io/piu-monitoramento-backend/hiperlinks.json)
-
+ - [https://spurb.github.io/piu-monitoramento-backend/sei](https://spurb.github.io/piu-monitoramento-backend/sei)
 
 ## Desenvolvimento
 Instruções para desenvolvimento no seu ambiente local e compilação local dos arquivos
@@ -37,7 +37,7 @@ Instruções para desenvolvimento no seu ambiente local e compilação local dos
 ```bash
 npm install 
 ```
-2. Criar os arquivos `output/monitoramento.json` e `output/hiperlinks.json`
+2. Criar os arquivos `output/monitoramento.json`, `output/hiperlinks.json` e a coleção de processos administrativos `output/sei/Nome do Projeto/:id`
 ```
 npm run build
 ```

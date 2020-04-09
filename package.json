@@ -37,7 +37,6 @@
   ],
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "puppeteer": "^2.1.1",
-    "tabletojson": "^2.0.4"
+    "puppeteer": "^2.1.1"
   }
 }

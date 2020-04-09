@@ -28,8 +28,7 @@ filteredLinkObjects.forEach(linkObject => {
 					.then(tables => {
 						fs.writeFileSync(`${folderPath}/${index + 1}.json`, JSON.stringify(tables))
 					})
-					.catch(error => console.error(error))
-			})
-		}, 1000)
-
+					.catch(error => new Error(error))
+				})
+		}, 1500)
 })

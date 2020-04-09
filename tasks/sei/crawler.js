@@ -4,7 +4,7 @@ import cheerio from 'cheerio'
 export default async (url) => {
 	const browser = await puppeteer.launch({ headless: true })
 	const page = await browser.newPage()
-	await page.goto(url)
+	await page.goto(url, { waitUntil: 'load', timeout: 15000 })
 	await page.waitFor(1000)
 
 	const content = await page.content()
@@ -28,6 +28,7 @@ export default async (url) => {
 	}
 
 	await browser.close()
+
 	return {
 		ficha: (() => {
 			let output = {}

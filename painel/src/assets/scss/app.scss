@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import 'variables';
+
+
+* {
+    font-family: 'Poopins', sans-serif;
+}
+
+html, body {
+  background-color: $cinza !important;
+  color: $preto !important;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* css em comum dos formularios */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .form-input, .btn-submit {
+    border: none;
+    border-radius: 5px;
+    margin: 7px;
+  }
+
+  label {
+    margin: 0 7px;
+  }
+
+  .form-input {
+    border: 1px solid $border;
+    font-size: 15px;
+    height: 30px;
+  }
+
+  .btn {
+    align-self: flex-end;
+    color: $branco;
+    height: 35px;
+  }
+
+  select {
+    cursor: pointer;
+  }
+}

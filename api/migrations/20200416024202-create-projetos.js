@@ -23,11 +23,8 @@ module.exports = {
       areaTotal: {
         type: Sequelize.INTEGER
       },
-      urb_x: {
-        type: Sequelize.FLOAT
-      },
-      urb_y: {
-        type: Sequelize.FLOAT
+      geometry: {
+        type: Sequelize.GEOMETRY
       },
       id_propostas: {
         type: Sequelize.INTEGER,
@@ -55,11 +52,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },

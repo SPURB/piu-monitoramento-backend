@@ -8,7 +8,9 @@
     "build": "npm run clean && npm run babel-build",
     "start": "node ./dist/index.js",
     "babel-build": "babel --out-dir ./dist ./src --minified --compact --source-maps false",
-    "clean": "babel-node ./cleanDist.js"
+    "clean": "babel-node ./cleanDist.js",
+    "db:init": "sequelize-cli db:create && sequelize-cli db:migrate && db:seed:all",
+    "db:reset": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate && sequelize-cli db:seed:all"
   },
   "repository": {
     "type": "git",

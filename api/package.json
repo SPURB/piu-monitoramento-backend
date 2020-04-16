@@ -1,0 +1,41 @@
+{
+  "name": "piu-monitoramento-backend",
+  "version": "1.0.0",
+  "description": "Sistema de monitoramento dos Projetos de Intervenção Urbana do Município de São Paulo (Decreto nº 56.901/2016)",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --exec babel-node ./src/index.js",
+    "build": "npm run clean && npm run babel-build",
+    "start": "node ./dist/index.js",
+    "babel-build": "babel --out-dir ./dist ./src --minified --compact --source-maps false",
+    "clean": "babel-node ./cleanDist.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SPURB/piu-monitoramento-backend.git"
+  },
+  "author": "desenvolvimento@spurbanismo.sp.gov.br",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/SPURB/piu-monitoramento-backend/issues"
+  },
+  "homepage": "https://github.com/SPURB/piu-monitoramento-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "babel-node": "0.0.1-security",
+    "mkdirp": "^1.0.4",
+    "nodemon": "^2.0.3",
+    "rimraf": "^3.0.2",
+    "sequelize-cli": "^5.5.1"
+  }
+}

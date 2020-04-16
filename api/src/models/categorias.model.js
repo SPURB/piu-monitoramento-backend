@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize, tramitacoes) => {
     registroSeiUltimo: {
       type: Sequelize.DATEONLY
     },
-    id_categorias: {
+    id_tramitacoes: {
       type: Sequelize.INTEGER,
       references: {
         model: tramitacoes,

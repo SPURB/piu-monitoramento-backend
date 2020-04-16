@@ -15,17 +15,14 @@ DB_NAME=piu_monitoramento
 
 desenvolvimento
 ```bash
-# Crie o banco
-npx sequelize-cli db:create
+# Inicie o banco
+npm run db:init
 
-# Inicie migrations
-npx sequelize-cli db:migrate
-
-# Popule dados com seeders
-npx sequelize-cli db:seed:all
-
-# Inicie o servidor para desenvolvimento
+# Inicie o servidor para desenvolvimento em localhost:5000
 npm run dev
+
+# Ao alterar o modelo, migrations e seeders pode rodar o reset para resetar os dados do banco
+npm run db:reset
 ```
 
 produção

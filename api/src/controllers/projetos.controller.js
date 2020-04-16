@@ -2,15 +2,18 @@ import { projetos } from '../db'
 import * as dao from './dao'
 
 exports.create = (req, res) => {
+
   if (!req.body.nome) {
     res.status(400).send({
-      message: 'Inclua o nome do projeto na requisição'
+      message: 'Inclua o nome da proposta na requisição'
     })
     return
   }
 
   const body = {
-    nome: req.body.nome
+    nome: req.body.nome,
+    descricao: req.body.descricao,
+    elemento: req.body.elemento,
   }
 
   dao.create(res, projetos, body)

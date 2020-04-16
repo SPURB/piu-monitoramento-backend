@@ -14,10 +14,10 @@ app.use(cors(corsOptions))
 
 const db = require("./db.js")
 
-// dev only, use migrations -> npx sequelize-cli db:migrations
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.")
-})
+// dev only, use migrations -> npx sequelize-cli db:migrate
+// db.sequelize.sync({ force: true }).then(() => {
+//   console.log("Drop and re-sync db.")
+// })
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))

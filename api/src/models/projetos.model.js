@@ -15,11 +15,8 @@ module.exports = (sequelize, Sequelize, db) => {
     areaTotal: {
       type: Sequelize.INTEGER
     },
-    urb_x: {
-      type: Sequelize.FLOAT
-    },
-    urb_y: {
-      type: Sequelize.FLOAT
+    geometry: {
+      type: Sequelize.GEOMETRY
     },
     id_propostas: {
       type: Sequelize.INTEGER,

@@ -14,6 +14,7 @@ addons:
 branches:
  only:
   - master
+  - api
 
 cache:
  npm: true
@@ -28,7 +29,8 @@ install:
   - npm ci
 
 script:
- - npm run build
+ - bash tasks.build.sh
+ - bash api.deploy.sh
 
 deploy:
   provider: pages

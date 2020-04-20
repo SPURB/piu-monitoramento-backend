@@ -8,10 +8,10 @@ module.exports = (sequelize, Sequelize, db) => {
       type: Sequelize.STRING,
       allowNull: false
     },
-    id_grupos: {
+    id_data_categorias: {
       type: Sequelize.INTEGER,
       references: {
-        model: db.grupos_arquivos,
+        model: db.data_categorias,
         key: 'id'
       }
     },

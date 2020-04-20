@@ -4,21 +4,13 @@ module.exports = (sequelize, Sequelize, tramitacoes) => {
       type: Sequelize.STRING,
       allowNull: false
     },
-    status: {
-      type: Sequelize.TEXT
-    },
-    registroSeiPrimeiro: {
-      type: Sequelize.DATEONLY
-    },
-    registroSeiUltimo: {
-      type: Sequelize.DATEONLY
-    },
     id_tramitacoes: {
       type: Sequelize.INTEGER,
       references: {
-        model: tramitacoes,
+        model: 'tramitacoes',
         key: 'id'
-      }
+      },
+      allowNull: false
     }
 	})
 

@@ -12,10 +12,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      id_grupos: {
+      id_data_categorias: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'grupos_arquivos',
+          model: 'data_categorias',
           key: 'id'
         }
       },

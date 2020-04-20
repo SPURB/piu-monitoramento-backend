@@ -1,8 +1,14 @@
 module.exports = (sequelize, Sequelize, categorias) => {
-  const GruposArquivos = sequelize.define("grupos_arquivos", {
-    nome: {
+  const DataCategorias = sequelize.define("data_categorias", {
+    status: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    registroSeiPrimeiro: {
+      type: Sequelize.DATEONLY
+    },
+    registroSeiUltimo: {
+      type: Sequelize.DATEONLY
     },
     id_categorias: {
       type: Sequelize.INTEGER,
@@ -13,5 +19,5 @@ module.exports = (sequelize, Sequelize, categorias) => {
     }
 	})
 
-  return GruposArquivos
+  return DataCategorias
 }

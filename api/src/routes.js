@@ -1,7 +1,8 @@
 import Router from 'express'
 import * as arquivos_tramitacoes from "./controllers/arquivos_tramitacoes.controller"
 import * as categorias from "./controllers/categorias.controller"
-import * as grupos_arquivos from "./controllers/grupos_arquivos.controller"
+import * as data_categorias from "./controllers/data_categorias.controller"
+import * as origens from "./controllers/origens.controller"
 import * as projetos from "./controllers/projetos.controller"
 import * as proponentes from "./controllers/proponentes.controller"
 import * as propostas from "./controllers/propostas.controller"
@@ -11,16 +12,12 @@ import * as tramitacoes from "./controllers/tramitacoes.controller"
 module.exports = (app) => {
 	const routes = [
 		{
-			path: 'arquivos_tramitacoes',
-			controller: arquivos_tramitacoes
-		},
-		{
 			path: 'categorias',
 			controller: categorias
-		},
-		{
-			path: 'grupos_arquivos',
-			controller: grupos_arquivos
+    },
+    {
+			path: 'origens',
+			controller: origens
 		},
 		{
 			path: 'projetos',
@@ -41,7 +38,15 @@ module.exports = (app) => {
 		{
 			path: 'tramitacoes',
 			controller: tramitacoes
-		}
+    },    
+    {
+			path: 'data_categorias',
+			controller: data_categorias
+    },
+    {
+      path: 'arquivos_tramitacoes',
+      controller: arquivos_tramitacoes
+    }
 	]
 
 	routes.forEach(route => {

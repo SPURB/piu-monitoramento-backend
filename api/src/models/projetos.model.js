@@ -15,8 +15,18 @@ module.exports = (sequelize, Sequelize, db) => {
     areaTotal: {
       type: Sequelize.INTEGER
     },
+    ultimaAtualizacao: {
+      type: Sequelize.DATEONLY
+    },
     geometry: {
       type: Sequelize.GEOMETRY
+    },
+    id_origens: {
+      type: Sequelize.INTEGER,
+      references: {
+        model: db.origens,
+        key: 'id'
+      }
     },
     id_propostas: {
       type: Sequelize.INTEGER,

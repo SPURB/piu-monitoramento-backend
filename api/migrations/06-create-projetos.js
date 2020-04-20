@@ -26,6 +26,14 @@ module.exports = {
       geometry: {
         type: Sequelize.GEOMETRY
       },
+      id_origens: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'origens',
+          key: 'id'
+        },
+        allowNull: false
+      },
       id_propostas: {
         type: Sequelize.INTEGER,
         references: {

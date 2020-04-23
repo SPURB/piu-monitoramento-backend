@@ -35,10 +35,10 @@ module.exports = (sequelize, Sequelize, db) => {
         key: 'id'
       }
     },
-    id_tramitacoes: {
+    id_categorias: {
       type: Sequelize.INTEGER,
       references: {
-        model: db.tramitacoes,
+        model: db.categorias,
         key: 'id'
       }
     },

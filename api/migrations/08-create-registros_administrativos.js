@@ -1,27 +1,25 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('data_categorias', {
+    return queryInterface.createTable('registros_administrativos', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      status: {
+      nome: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      registroSeiPrimeiro: {
-        type: Sequelize.DATEONLY
+      arquivo_url: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      registroSeiUltimo: {
-        type: Sequelize.DATEONLY
-      },
-      id_categorias: {
+      id_projetos: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'categorias',
+          model: 'projetos',
           key: 'id'
         }
       },
@@ -38,6 +36,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('data_categorias');
+    return queryInterface.dropTable('registros_administrativos');
   }
 }

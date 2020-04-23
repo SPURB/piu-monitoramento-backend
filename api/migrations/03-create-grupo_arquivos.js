@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('registros_administrativos', {
+    return queryInterface.createTable('grupo_arquivos', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,13 +11,6 @@ module.exports = {
       nome: {
         type: Sequelize.STRING,
         allowNull: false
-      },
-      id_projetos: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'projetos',
-          key: 'id'
-        }
       },
       createdAt: {
         allowNull: false,
@@ -32,6 +25,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('registros_administrativos');
+    return queryInterface.dropTable('categorias');
   }
 }

@@ -3,9 +3,14 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('categorias', [
-      { nome: 'Categoria 1', id_tramitacoes: 1 },
-      { nome: 'Categoria 2', id_tramitacoes: 2 },
-      { nome: 'Categoria 3', id_tramitacoes: 3 }
+      { nome: 'Em Proposição dos Elementos Prévios', id_tramitacoes: 1 },
+      { nome: 'Consulta Pública Inicial', id_tramitacoes: 1},
+      { nome: 'Avaliação SMUL', id_tramitacoes: 1},
+      { nome: 'Elaboração', id_tramitacoes: 2 },
+      { nome: 'Discussão Pública', id_tramitacoes: 2 },
+      { nome: 'Consolidação', id_tramitacoes: 2 },
+      { nome: 'Encaminhamento Jurídico', id_tramitacoes: 2 },
+      { nome: 'Implantação', id_tramitacoes: 3 }
    ], {})
 },
 

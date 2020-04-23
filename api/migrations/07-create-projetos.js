@@ -26,6 +26,9 @@ module.exports = {
       geometry: {
         type: Sequelize.GEOMETRY
       },
+      ultimaAtualizacao: {
+        type: Sequelize.DATEONLY
+      },
       id_origens: {
         type: Sequelize.INTEGER,
         references: {
@@ -42,10 +45,10 @@ module.exports = {
         },
         allowNull: false
       },
-      id_tramitacoes: {
+      id_categorias: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'tramitacoes',
+          model: 'categorias',
           key: 'id'
         },
         allowNull: false

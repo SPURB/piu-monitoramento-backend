@@ -1,5 +1,9 @@
 module.exports = (sequelize, Sequelize, projetos) => {
   const RegistrosAdminitrativos = sequelize.define("registros_administrativos", {
+    nome: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
     arquivo_url: {
       type: Sequelize.STRING,
       allowNull: false

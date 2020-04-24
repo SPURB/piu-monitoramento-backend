@@ -1,6 +1,33 @@
 import * as db from '../db'
 import * as dao from './dao'
 
+
+function group_by (lista, coluna) {
+  let colunas = {};
+  let resultado = [];
+
+  lista = JSON.stringify(lista)
+  lista = JSON.parse(lista)
+
+  lista.forEach(function (item) {
+    let reg = {};
+
+    colunas[item[coluna]] = colunas[item[coluna]] || [];
+
+    for (let i in item) 
+      if (i != coluna) 
+        reg[i] = item[i];
+
+    colunas[item[coluna]].push(reg);
+  });
+
+
+  for (let i in colunas) 
+    resultado.push({key: +i, values: colunas[i]});
+
+  return resultado
+}
+
 exports.create = (req, res) => {
 
   if (!req.body.nome) {
@@ -27,28 +54,39 @@ const { id } = req.params
       where: { id },
       attributes: ['id', 'nome', 'descricao', 'elemento', 'areaTotal', 'ultimaAtualizacao', 'geometry'],
       include: [
-        { model: db.origens },
-        { model: db.propostas },
-        { model: db.proponentes },
-        { model: db.categorias }
+        { model: db.origens, attributes: ['id', 'nome'] },
+        { model: db.propostas, attributes: ['id', 'nome'] },
+        { model: db.proponentes, attributes: ['id', 'nome'] },
+        { model: db.categorias, attributes: ['id', 'nome'] }
       ]
     })
 
     const registrosAdmin = await db.registros_administrativos.findAll({
-      where: { id_projetos: id}
+      where: { id_projetos: id},
+      attributes: ['id', 'nome', 'arquivo_url']
     })
 
     const data_categoria = await db.data_categorias.findAll({
-      where: { id_projetos: id }
-    })
-
-    const arquivos = await db.arquivos_tramitacoes.findAll({
       where: { id_projetos: id },
-      group: ['id_categorias']
+      attributes: ['id', 'status', 'registroSeiPrimeiro', 'registroSeiUltimo', 'id_categorias']
+    })
+    
+    let arquivos = await db.arquivos_tramitacoes.findAll({
+      where: { id_projetos: id },
+      attributes: ['id', 'nome', 'arquivo_url', 'id_categorias','id_grupos'],
+      include: [
+        { model: db.grupo_arquivos, attributes: ['id', 'nome']}
+      ]
+    })
+    arquivos = group_by(arquivos, 'id_categorias')
+    
+    res.status(200).send({
+      projeto,
+      registrosAdmin,
+      data_categoria,
+      arquivos
     })
 
-    res.send(arquivos)
-    
   } catch (err) {
     res.status(500).send({
       err,

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js" defer></script>
+  <script src="index.js" defer></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+    * {
+      font-family: 'Poopins', sans-serif;
+    }
+    html, body {
+      background-color: rgb(236, 236, 236);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .container .group-button {
+      display: flex;
+      align-items: center;
+    }
+    .container .group-button button {
+      border: none;
+      background-color: rgb(178, 190, 178);
+      color: black;
+      cursor: pointer;
+      margin: 5px;
+      width: 150px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Gerador de arquivos seeders</h1>
+    <div class="group-button">
+      <button type="button" id="btnProjeto">Gerar seeders</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -16,6 +16,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      statusConsulta: {
+        type: Sequelize.BOOLEAN,
+        default: 0
+      },
       elemento: {
         type: Sequelize.STRING,
         allowNull: false

@@ -10,7 +10,9 @@ module.exports = {
       { nome: 'Discussão Pública', id_tramitacoes: 2 },
       { nome: 'Consolidação', id_tramitacoes: 2 },
       { nome: 'Encaminhamento Jurídico', id_tramitacoes: 2 },
-      { nome: 'Implantação', id_tramitacoes: 3 }
+      { nome: 'Implantação', id_tramitacoes: 3 },
+      { nome: 'Suspenso', id_tramitacoes: 4 },
+      { nome: 'Arquivado', id_tramitacoes: 5 }
    ], {})
 },
 

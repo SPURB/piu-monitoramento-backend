@@ -10,6 +10,7 @@ import * as grupo_arquivos from "./controllers/grupo_arquivos.controller"
 import * as registros_administrativos from "./controllers/registros_administrativos.controller"
 import * as tramitacoes from "./controllers/tramitacoes.controller"
 
+
 module.exports = (app) => {
 	const routes = [
 		{
@@ -53,12 +54,11 @@ module.exports = (app) => {
       controller: arquivos_tramitacoes
     }
 	]
-
-  const router = new Router()
-
+   
   // rotas padrão
 	routes.forEach(route => {
 		const controller = route.controller
+    const router = new Router()
 
 		router.post('/', controller.create)
 		router.get('/', controller.findAll)
@@ -67,8 +67,9 @@ module.exports = (app) => {
 		router.delete('/:id', controller.delete)
 		app.use(`/${route.path}`, router)
   })
+
+  const customRoute = new Router()
   
-  // rotas personalizadas
-  router.get('/construtor/:id', projetos.findProject)
-  app.use('/projetos', router)
+  customRoute.get('/sumario', projetos.projectForTramit)
+  app.use('/', customRoute)
 }

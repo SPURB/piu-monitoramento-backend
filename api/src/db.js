@@ -49,4 +49,7 @@ db.arquivos_tramitacoes.belongsTo(db.projetos, { foreignKey: 'id_projetos' })
 db.data_categorias.belongsTo(db.categorias, { foreignKey: 'id_categorias' })
 db.data_categorias.belongsTo(db.projetos, { foreignKey: 'id_projetos' })
 
+// relacionamentos tabela `categorias`
+db.categorias.belongsTo(db.tramitacoes, { foreignKey: 'id_tramitacoes' })
+
 module.exports = db

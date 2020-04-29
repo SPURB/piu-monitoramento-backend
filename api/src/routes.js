@@ -1,4 +1,5 @@
 import Router from 'express'
+import * as fontes from "./controllers/fontes.controller"
 import * as arquivos_tramitacoes from "./controllers/arquivos_tramitacoes.controller"
 import * as categorias from "./controllers/categorias.controller"
 import * as data_categorias from "./controllers/data_categorias.controller"
@@ -48,6 +49,10 @@ module.exports = (app) => {
     {
 			path: 'data_categorias',
 			controller: data_categorias
+    },
+    {
+      path: 'fontes',
+      controller: fontes
     },
     {
       path: 'arquivos_tramitacoes',

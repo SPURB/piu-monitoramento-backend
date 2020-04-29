@@ -3,13 +3,14 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('grupo_arquivos', [
-      { nome: 'Audiência Pública' },
-      { nome: 'Consulta Caderno' },
       { nome: 'Consulta Instâncias' },
+      { nome: 'Consulta Caderno' },
       { nome: 'Consulta Minuta' },
+      { nome: 'Audiência Pública' },
       { nome: 'Reuniões Bilateriais' },
-      { nome: 'Projeto Final' },
       { nome: 'Outros' },
+      { nome: 'Projeto Final' },
+      { nome: 'Processo Administrativo' },
       { nome: 'Arquivos' }
    ], {})
 },

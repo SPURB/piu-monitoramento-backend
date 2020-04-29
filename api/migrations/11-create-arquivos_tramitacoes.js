@@ -30,6 +30,13 @@ module.exports = {
           key: 'id'
         }
       },
+      id_fontes: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'fontes',
+          key: 'id'
+        }
+      },
       id_projetos: {
         type: Sequelize.INTEGER,
         references: {

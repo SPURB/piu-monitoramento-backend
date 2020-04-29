@@ -9,7 +9,8 @@ module.exports = {
       { nome: 'PMSP - SMDP/SPP e SMT' },
       { nome: 'SPE Horizonte Branco' },
       { nome: 'Votorantim, Urbem, SDI, BVEP S.A.' },
-      { nome: 'VS Bandeirante Empreendimentos Imobiliarios LTDAVS Banguera Empreendimentos Imobiliarios LTDAPADESP/NESPCarlos Leite I Stuchi & Leite Projetos (Coordenação)' }
+      { nome: 'VS Bandeirante Empreendimentos Imobiliarios LTDAVS Banguera Empreendimentos Imobiliarios LTDAPADESP/NESPCarlos Leite I Stuchi & Leite Projetos (Coordenação)' },
+      { nome: 'Governo do Estado de São Paulo' }
     ], {})
 },
 

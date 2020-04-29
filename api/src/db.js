@@ -27,6 +27,7 @@ db.grupo_arquivos = require("./models/grupo_arquivos.model.js")(sequelize, Seque
 db.projetos = require("./models/projetos.model.js")(sequelize, Sequelize, db)
 db.registros_administrativos = require("./models/registros_administrativos.model.js")(sequelize, Sequelize, db.projetos)
 db.data_categorias = require("./models/data_categorias.model.js")(sequelize, Sequelize, db)
+db.fontes = require("./models/fontes.model.js")(sequelize, Sequelize)
 db.arquivos_tramitacoes = require("./models/arquivos_tramitacoes.model.js")(sequelize, Sequelize, db)
 
 // a fazer: incluir joins -> https://lorenstewart.me/2016/09/12/sequelize-table-associations-joins/
@@ -43,6 +44,7 @@ db.registros_administrativos.belongsTo(db.projetos, { foreignKey: 'id_projetos' 
 // relacionamentos tabela `arquivos_tramitacoes`
 db.arquivos_tramitacoes.belongsTo(db.categorias, { foreignKey: 'id_categorias' })
 db.arquivos_tramitacoes.belongsTo(db.grupo_arquivos, { foreignKey: 'id_grupos' })
+db.arquivos_tramitacoes.belongsTo(db.fontes, { foreignKey: 'id_fontes' })
 db.arquivos_tramitacoes.belongsTo(db.projetos, { foreignKey: 'id_projetos' })
 
 // relacionamentos tabela `data_categorias`

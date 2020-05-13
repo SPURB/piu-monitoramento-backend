@@ -5,7 +5,7 @@ import path from 'path'
 export default {
 	convert: (inputExcel, tableName) => {
 		const worksheet = XLSX.readFile(inputExcel).Sheets[tableName]
-		const rows = XLSX.utils.sheet_to_json(worksheet,{raw:true}) //toda planilha
+		const rows = XLSX.utils.sheet_to_json(worksheet,{ raw: true }) //toda planilha
 		let outputJson = []
 
 		rows.forEach(function(rowLine){ // para cada linha

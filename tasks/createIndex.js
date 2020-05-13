@@ -20,6 +20,10 @@ function createIndex(date, baseUrl, packageContent, runLocation) {
 			{
 				url: `${baseUrl}/sei/`,
 				descricao: 'Processos administrativos'
+			},
+			{
+				url: `${baseUrl}/v1/`,
+				descricao: 'Dados de projetos (versão 0.1)'
 			}
 		]
 	}

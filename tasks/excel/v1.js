@@ -1,7 +1,6 @@
 import builders from './builders'
 
 const tables = [
-	'meta',
 	'origens',
 	'proponentes',
 	'grupos',

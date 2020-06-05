@@ -1,14 +1,12 @@
-import XLSX from 'xlsx'
+import { utils, readFile } from 'xlsx'
 import fs from 'fs-extra'
 import path from 'path'
 import moment from 'moment'
 
-const { utils, readFile } = XLSX
-
 const self = module.exports = {
 	read: (inputExcel, tableName, method = 'sheet_to_json') => {
 		const worksheet = readFile(inputExcel).Sheets[tableName]
-		return XLSX.utils[method](worksheet,{ raw: true })
+		return utils[method](worksheet,{ raw: true })
 	},
 	convert: (inputExcel, tableName) => {
 		const rows = self.read(inputExcel, tableName)
@@ -36,9 +34,7 @@ const self = module.exports = {
 		console.log(completePath + ' atualizado')
 	},
 	convertModel: (filePath, { table, collumns }) => {
-
 		const excelRows = self.read(filePath, table, 'sheet_to_json')
-
 		const noContentDefaults = {
 			'int': 0,
 			'float': 0,
@@ -49,9 +45,7 @@ const self = module.exports = {
 
 		const mapped = excelRows.map(excelRow => {
 			let mappedRow = {}
-
 			collumns.forEach(({ key, type }) => {
-
 				if (!excelRow[key]) mappedRow[key] = noContentDefaults[type]
 				else if (type === 'datetime') {
 					const now = new Date(Math.round((excelRow[key] - (25567 + 1))*86400*1000))
@@ -59,7 +53,6 @@ const self = module.exports = {
 				}
 				else mappedRow[key] = excelRow[key]
 			})
-
 			return mappedRow
 		})
 		return mapped

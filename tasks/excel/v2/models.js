@@ -1,7 +1,4 @@
-import builders from './builders'
-const { convertModel, create } = builders
-
-const models = [
+module.exports = [
   {
     table: 'origens',
     collumns: [
@@ -183,8 +180,3 @@ const models = [
     ]
   }
 ]
-
-models.forEach((model) => {
-  const data = convertModel('input/piu-monitoramento_v2.xlsx', model)
-  create(`output/v2/${model.table}.json`, data)
-})

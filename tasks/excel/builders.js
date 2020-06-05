@@ -1,18 +1,22 @@
-import XLSX from 'xlsx'
+import { utils, readFile } from 'xlsx'
 import fs from 'fs-extra'
 import path from 'path'
+import moment from 'moment'
 
-export default {
+const self = module.exports = {
+	read: (inputExcel, tableName, method = 'sheet_to_json') => {
+		const worksheet = readFile(inputExcel).Sheets[tableName]
+		return utils[method](worksheet,{ raw: true })
+	},
 	convert: (inputExcel, tableName) => {
-		const worksheet = XLSX.readFile(inputExcel).Sheets[tableName]
-		const rows = XLSX.utils.sheet_to_json(worksheet,{ raw: true }) //toda planilha
+		const rows = self.read(inputExcel, tableName)
 		let outputJson = []
 
-		rows.forEach(function(rowLine){ // para cada linha
+		rows.forEach(rowLine => { // para cada linha
 			const collection = Object.entries(rowLine); 
 			let output = {}
 
-			collection.forEach(function(index) {
+			collection.forEach(index => {
 				if(index[1] != ''){ //se não tiver dados não inclui no json final
 					output[index[0]] = index[1]
 				}
@@ -21,10 +25,36 @@ export default {
 		})
 		return outputJson
 	},
-	create: (file, json)  => {
+	create: async (file, json) => {
 		const currentPath = path.resolve(__dirname, '../../')
-		fs.writeFileSync(`${currentPath}/${file}`, JSON.stringify(json))
+		const completePath = `${currentPath}/${file}`
 
-		console.log(`${currentPath}/${file}` + ' atualizado')
+		await fs.ensureFile(completePath)
+		fs.writeFileSync(completePath, JSON.stringify(json))
+		console.log(completePath + ' atualizado')
+	},
+	convertModel: (filePath, { table, collumns }) => {
+		const excelRows = self.read(filePath, table, 'sheet_to_json')
+		const noContentDefaults = {
+			'int': 0,
+			'float': 0,
+			'boolean': false,
+			'string': '',
+			'datetime': ''
+		}
+
+		const mapped = excelRows.map(excelRow => {
+			let mappedRow = {}
+			collumns.forEach(({ key, type }) => {
+				if (!excelRow[key]) mappedRow[key] = noContentDefaults[type]
+				else if (type === 'datetime') {
+					const now = new Date(Math.round((excelRow[key] - (25567 + 1))*86400*1000))
+					mappedRow[key] = moment(now).format('YYYY-MM-DD')
+				}
+				else mappedRow[key] = excelRow[key]
+			})
+			return mappedRow
+		})
+		return mapped
 	}
 }

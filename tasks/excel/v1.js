@@ -11,6 +11,6 @@ const tables = [
 ]
 
 tables.forEach(table => {
-	const data = builders.convert('input/piu-monitoramento.xlsx', table)
+	const data = builders.convert('input/piu-monitoramento_v1.xlsx', table)
 	builders.create(`output/v1/${table}.json`, data)
 })

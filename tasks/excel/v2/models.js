@@ -127,6 +127,14 @@ module.exports = [
         key: 'status',
         type: 'string'
       },
+      {
+        key: 'kml',
+        type: 'string'
+      },
+      {
+        key: 'shape',
+        type: 'string'
+      },
     ]
   },
   {

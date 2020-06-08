@@ -23,14 +23,14 @@ git push
 ```
 
 Os dados serão atualizados nas seguintes urls:
- - [https://spurb.github.io/piu-monitoramento-backend/v2/origens.json](https://spurb.github.io/piu-monitoramento-backend/origens.json)
- - [https://spurb.github.io/piu-monitoramento-backend/v2/proponentes.json](https://spurb.github.io/piu-monitoramento-backend/proponentes.json)
- - [https://spurb.github.io/piu-monitoramento-backend/v2/fontes.json](https://spurb.github.io/piu-monitoramento-backend/fontes.json)
- - [https://spurb.github.io/piu-monitoramento-backend/v2/grupos.json](https://spurb.github.io/piu-monitoramento-backend/grupos.json)
- - [https://spurb.github.io/piu-monitoramento-backend/v2/data_tramitacao.json](https://spurb.github.io/piu-monitoramento-backend/data_tramitacao.json)
- - [https://spurb.github.io/piu-monitoramento-backend/v2/projetos.json](https://spurb.github.io/piu-monitoramento-backend/projetos.json)
- - [https://spurb.github.io/piu-monitoramento-backend/v2/tramitacao.json](https://spurb.github.io/piu-monitoramento-backend/tramitacao.json)
- - [https://spurb.github.io/piu-monitoramento-backend/v2/arquivos_tramitacao.json](https://spurb.github.io/piu-monitoramento-backend/arquivos_tramitacao.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/origens.json](https://spurb.github.io/piu-monitoramento-backend/v2/origens.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/proponentes.json](https://spurb.github.io/piu-monitoramento-backend/v2/proponentes.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/fontes.json](https://spurb.github.io/piu-monitoramento-backend/v2/fontes.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/grupos.json](https://spurb.github.io/piu-monitoramento-backend/v2/grupos.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/data_tramitacao.json](https://spurb.github.io/piu-monitoramento-backend/v2/data_tramitacao.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/projetos.json](https://spurb.github.io/piu-monitoramento-backend/v2/projetos.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/tramitacao.json](https://spurb.github.io/piu-monitoramento-backend/v2/tramitacao.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/arquivos_tramitacao.json](https://spurb.github.io/piu-monitoramento-backend/v2/arquivos_tramitacao.json)
 
 ## Desenvolvimento
 Instruções para desenvolvimento no seu ambiente local e compilação local dos arquivos

@@ -37,7 +37,7 @@ const self = module.exports = {
 		const excelRows = self.read(filePath, table, 'sheet_to_json')
 		const noContentDefaults = {
 			'int': 0,
-			'float': 0,g
+			'float': 0,
 			'boolean': false,
 			'string': '',
 			'datetime': ''

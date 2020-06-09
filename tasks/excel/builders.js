@@ -49,7 +49,7 @@ const self = module.exports = {
 				if (!excelRow[key]) mappedRow[key] = noContentDefaults[type]
 				else if (type === 'datetime') {
 					const now = new Date(Math.round((excelRow[key] - (25567 + 1))*86400*1000))
-					mappedRow[key] = moment(now).format('YYYY-MM-DD')
+					mappedRow[key] = moment(now).isValid() ? moment(now).format('YYYY-MM-DD') : noContentDefaults[type]
 				}
 				else if (excelRow[key] && type === 'boolean') mappedRow[key] = true
 				else mappedRow[key] = excelRow[key]

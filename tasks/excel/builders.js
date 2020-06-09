@@ -37,7 +37,7 @@ const self = module.exports = {
 		const excelRows = self.read(filePath, table, 'sheet_to_json')
 		const noContentDefaults = {
 			'int': 0,
-			'float': 0,
+			'float': 0,g
 			'boolean': false,
 			'string': '',
 			'datetime': ''
@@ -49,8 +49,9 @@ const self = module.exports = {
 				if (!excelRow[key]) mappedRow[key] = noContentDefaults[type]
 				else if (type === 'datetime') {
 					const now = SSF.parse_date_code(excelRow[key])
-					const formated = moment({ year :now.y, month :now.m, day :now.d }).format('YYYY-MM-DD')
-					mappedRow[key] = now.D ? formated : noContentDefaults['datetime']
+					const parsed = moment({ year :now.y, month :now.m, day :now.d })
+					const formated = parsed.format('YYYY-MM-DD')
+					mappedRow[key] = parsed.isValid() ? formated : noContentDefaults['datetime']
 				}
 				else if (excelRow[key] && type === 'boolean') mappedRow[key] = true
 				else mappedRow[key] = excelRow[key]

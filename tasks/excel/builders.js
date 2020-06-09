@@ -1,4 +1,4 @@
-import { utils, readFile } from 'xlsx'
+import { utils, readFile, SSF } from 'xlsx'
 import fs from 'fs-extra'
 import path from 'path'
 import moment from 'moment'
@@ -48,8 +48,9 @@ const self = module.exports = {
 			collumns.forEach(({ key, type }) => {
 				if (!excelRow[key]) mappedRow[key] = noContentDefaults[type]
 				else if (type === 'datetime') {
-					const now = new Date(Math.round((excelRow[key] - (25567 + 1))*86400*1000))
-					mappedRow[key] = moment(now).isValid() ? moment(now).format('YYYY-MM-DD') : noContentDefaults[type]
+					const now = SSF.parse_date_code(excelRow[key])
+					const formated = moment({ year :now.y, month :now.m, day :now.d }).format('YYYY-MM-DD')
+					mappedRow[key] = now.D ? formated : noContentDefaults['datetime']
 				}
 				else if (excelRow[key] && type === 'boolean') mappedRow[key] = true
 				else mappedRow[key] = excelRow[key]

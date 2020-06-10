@@ -49,8 +49,8 @@ const self = module.exports = {
 				if (!excelRow[key]) mappedRow[key] = noContentDefaults[type]
 				else if (type === 'datetime') {
 					const now = SSF.parse_date_code(excelRow[key])
-					const parsed = moment({ year :now.y, month :now.m, day :now.d })
-					const formated = parsed.format('YYYY-MM-DD')
+					const parsed = moment({ year: now.y, month: now.m - 1, day: now.d })
+					const formated = parsed.format('DD/MM/YYYY')
 					mappedRow[key] = parsed.isValid() ? formated : noContentDefaults['datetime']
 				}
 				else if (excelRow[key] && type === 'boolean') mappedRow[key] = true

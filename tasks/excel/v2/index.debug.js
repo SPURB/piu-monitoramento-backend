@@ -1,0 +1,10 @@
+console.log('------------------ debug ---------------------------')
+const datas = convertModel('input/piu-monitoramento_v2.xlsx', models[4])
+console.log('')
+console.log('------------------ nacoes-unidas -------------------')
+console.log(datas.filter(data=>data.id_projetos === 10 && data.id_tramitacao === 1))
+
+console.log('')
+console.log('')
+console.log('------------------ capelinha ---------------------')
+console.log(datas.filter(data=>data.id_projetos === 18 && data.id_tramitacao === 1))

@@ -6,7 +6,7 @@
     "build": "npm run task:excel && npm run task:excel:v1 && npm run task:excel:v2 && npm run task:index",
     "task:excel:v1": "babel-node ./tasks/excel/v1",
     "task:excel:v2": "babel-node ./tasks/excel/v2",
-    "dev:task:excel:v2": "nodemon --ignore './output/v2/*.json' --exec babel-node ./tasks/excel/v2",
+    "dev:task:excel:v2": "nodemon --ignore './output/v2/*.json' --exec babel-node ./tasks/excel/v2/index.debug",
     "task:excel": "babel-node ./tasks/excel",
     "task:sei": "babel-node ./tasks/sei",
     "task:index": "babel-node ./tasks/createIndex",

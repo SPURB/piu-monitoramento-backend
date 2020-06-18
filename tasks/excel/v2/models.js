@@ -154,6 +154,10 @@ module.exports = [
     table: 'arquivos_tramitacao',
     collumns: [
       {
+        key: 'id',
+        type: 'int'
+      },
+      {
         key: 'id_projetos',
         type: 'int'
       },

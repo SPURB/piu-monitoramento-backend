@@ -8,43 +8,37 @@ module.exports = (sequelize, Sequelize, db) => {
       type: Sequelize.STRING,
       allowNull: false
     },
-    statusConsulta: {
+    consultaAberta: {
       type: Sequelize.BOOLEAN,
       default: 0
     },
-    elemento: {
+    elementoMEM: {
       type: Sequelize.STRING,
       allowNull: false
     },
     areaTotal: {
-      type: Sequelize.INTEGER
+      type: Sequelize.FLOAT,
+      allowNull: false
     },
     ultimaAtualizacao: {
-      type: Sequelize.DATEONLY
+      type: Sequelize.DATE,
+      allowNull: false
     },
-    geometry: {
-      type: Sequelize.GEOMETRY
+    proponentePrivado: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false
     },
-    id_origens: {
-      type: Sequelize.INTEGER,
-      references: {
-        model: db.origens,
-        key: 'id'
-      }
+    status: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
-    id_propostas: {
-      type: Sequelize.INTEGER,
-      references: {
-        model: db.propostas,
-        key: 'id'
-      }
+    kml: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
-    id_categorias: {
-      type: Sequelize.INTEGER,
-      references: {
-        model: db.categorias,
-        key: 'id'
-      }
+    shape: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
     id_proponentes: {
       type: Sequelize.INTEGER,
@@ -52,7 +46,14 @@ module.exports = (sequelize, Sequelize, db) => {
         model: db.proponentes,
         key: 'id'
       }
-    }
+    },
+    id_tramitacao: {
+      type: Sequelize.INTEGER,
+      references: {
+        model: db.tramitacao,
+        key: 'id'
+      }
+    }    
   })
 
   return Projetos

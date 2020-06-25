@@ -1,10 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
-  const GrupoArquivos = sequelize.define("grupo_arquivos", {
+  const Grupos = sequelize.define("grupos", {
     nome: {
       type: Sequelize.STRING,
       allowNull: false
     }
 	})
 
-  return GrupoArquivos
+  return Grupos
 } 

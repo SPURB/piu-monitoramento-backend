@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize, db) => {
-  const DataCategorias = sequelize.define("data_categorias", {
+  const DataTramitacao = sequelize.define("data_tramitacao", {
     status: {
       type: Sequelize.STRING,
       allowNull: false
@@ -10,10 +10,10 @@ module.exports = (sequelize, Sequelize, db) => {
     registroSeiUltimo: {
       type: Sequelize.DATEONLY
     },
-    id_categorias: {
+    id_tramitacao: {
       type: Sequelize.INTEGER,
       references: {
-        model: db.categorias,
+        model: db.tramitacao,
         key: 'id'
       }
     },
@@ -26,5 +26,5 @@ module.exports = (sequelize, Sequelize, db) => {
     }
 	})
 
-  return DataCategorias
+  return DataTramitacao
 }

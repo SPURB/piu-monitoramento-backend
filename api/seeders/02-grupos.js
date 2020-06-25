@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('grupo_arquivos', [
+    return queryInterface.bulkInsert('grupos', [
       { nome: 'Consulta Instâncias' },
       { nome: 'Consulta Caderno' },
       { nome: 'Consulta Minuta' },
@@ -16,6 +16,6 @@ module.exports = {
 },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('grupo_arquivos', null, {})
+    return queryInterface.bulkDelete('grupos', null, {})
   }
 };

@@ -1,34 +1,54 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('data_categorias', {
+    return queryInterface.createTable('arquivos_tramitacao', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      status: {
+      data: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      documento: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      registroSeiPrimeiro: {
-        type: Sequelize.DATEONLY
+      arquivo_url: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      registroSeiUltimo: {
-        type: Sequelize.DATEONLY
-      },
-      id_categorias: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'categorias',
-          key: 'id'
-        }
+      evento: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       id_projetos: {
         type: Sequelize.INTEGER,
         references: {
           model: 'projetos',
+          key: 'id'
+        }
+      },
+      id_tramitacao: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'tramitacao',
+          key: 'id'
+        }
+      },
+      id_fonte: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'fontes',
+          key: 'id'
+        }
+      },
+      id_grupo: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'grupos',
           key: 'id'
         }
       },
@@ -45,6 +65,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('data_categorias');
+    return queryInterface.dropTable('arquivos_tramitacao');
   }
 }

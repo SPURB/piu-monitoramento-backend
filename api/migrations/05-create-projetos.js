@@ -16,51 +16,50 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      statusConsulta: {
+      consultaAberta: {
         type: Sequelize.BOOLEAN,
         default: 0
       },
-      elemento: {
+      elementoMEM: {
         type: Sequelize.STRING,
         allowNull: false
       },
       areaTotal: {
-        type: Sequelize.INTEGER
-      },
-      geometry: {
-        type: Sequelize.GEOMETRY
+        type: Sequelize.FLOAT,
+        allowNull: false
       },
       ultimaAtualizacao: {
-        type: Sequelize.DATEONLY
-      },
-      id_origens: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'origens',
-          key: 'id'
-        },
+        type: Sequelize.DATE,
         allowNull: false
       },
-      id_propostas: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'propostas',
-          key: 'id'
-        },
+      proponentePrivado: {
+        type: Sequelize.BOOLEAN,
         allowNull: false
       },
-      id_categorias: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'categorias',
-          key: 'id'
-        },
+      status: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      kml: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      shape: {
+        type: Sequelize.STRING,
         allowNull: false
       },
       id_proponentes: {
         type: Sequelize.INTEGER,
         references: {
           model: 'proponentes',
+          key: 'id'
+        },        
+        allowNull: false
+      },
+      id_tramitacao: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'tramitacao',
           key: 'id'
         },
         allowNull: false

@@ -1,39 +1,31 @@
-const path = require('path')
-const fs = require('fs-extra')
-const now = new Date()
+import path from 'path'
+import fs from 'fs-extra'
+import modelv2 from './excel/v2/models'
+
+const lastupdate = new Date()
 const current = path.resolve(__dirname, '..')
-const pkg = fs.readFileSync(`${current}/package.json`, 'utf8')
+const packageContent = JSON.parse(fs.readFileSync(`${current}/package.json`, 'utf8'))
+const baseUrl = `https://spurb.github.io/piu-monitoramento-backend/`
 
-function createIndex(date, baseUrl, packageContent, runLocation) {
-	const pkg = JSON.parse(packageContent)
-	const info = {
-		lastupdate: date,
-		endpoints: [
-			{
-				url: `${baseUrl}monitoramento.json`,
-				descricao: 'Dados referentes a cada projeto'
-			},
-			{
-				url: `${baseUrl}hiperlinks.json`,
-				descricao: 'Lista de todos os arquivos projetos'
-			},
-			{
-				url: `${baseUrl}/sei/`,
-				descricao: 'Processos administrativos'
-			},
-			{
-				url: `${baseUrl}/v1/`,
-				descricao: 'Dados de projetos (versão 0.1)'
-			}
-		]
-	}
-	info.description = pkg.description
-	info.author = pkg.author
-	info.bugs = pkg.bugs
-	info.repository = pkg.repository
-	info.keywords = pkg.keywords
+const { description, author, bugs, repository, keywords, version } = packageContent
 
-	fs.writeFileSync(`${runLocation}/output/index.json`,JSON.stringify(info))
+let endpoints = modelv2
+  .map(model => {
+    return {
+      url: `${baseUrl}v2/${model.table}.json`,
+      descricao: `Dados da tabela ${model.table}`
+    }
+  })
+
+const info = {
+  description,
+  version,
+  lastupdate,
+  author,
+  bugs,
+  repository,
+  keywords,
+  endpoints
 }
 
-createIndex(now, 'https://spurb.github.io/piu-monitoramento-backend/', pkg, current)
+fs.writeFileSync(`${current}/output/index.json`,JSON.stringify(info))

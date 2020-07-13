@@ -7,6 +7,12 @@ Esta é a fonte dos dados do monitoramento dos Projetos de Intervenção Urbana 
  - [/index.json](https://spurb.github.io/piu-monitoramento-backend/index.json)
 
 ### E os dados disponibilizados:
-- [/monitoramento.json](https://spurb.github.io/piu-monitoramento-backend/monitoramento.json)
-- [/hiperlinks.json](https://spurb.github.io/piu-monitoramento-backend/hiperlinks.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/origens.json](https://spurb.github.io/piu-monitoramento-backend/v2/origens.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/proponentes.json](https://spurb.github.io/piu-monitoramento-backend/v2/proponentes.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/fontes.json](https://spurb.github.io/piu-monitoramento-backend/v2/fontes.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/grupos.json](https://spurb.github.io/piu-monitoramento-backend/v2/grupos.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/data_tramitacao.json](https://spurb.github.io/piu-monitoramento-backend/v2/data_tramitacao.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/projetos.json](https://spurb.github.io/piu-monitoramento-backend/v2/projetos.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/tramitacao.json](https://spurb.github.io/piu-monitoramento-backend/v2/tramitacao.json)
+ - [https://spurb.github.io/piu-monitoramento-backend/v2/arquivos_tramitacao.json](https://spurb.github.io/piu-monitoramento-backend/v2/arquivos_tramitacao.json)
 

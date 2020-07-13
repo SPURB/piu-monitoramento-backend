@@ -1,18 +1,22 @@
-import XLSX from 'xlsx'
+import { utils, readFile, SSF } from 'xlsx'
 import fs from 'fs-extra'
 import path from 'path'
+import moment from 'moment'
 
-export default {
+const self = module.exports = {
+	read: (inputExcel, tableName, method = 'sheet_to_json') => {
+		const worksheet = readFile(inputExcel).Sheets[tableName]
+		return utils[method](worksheet,{ raw: true })
+	},
 	convert: (inputExcel, tableName) => {
-		const worksheet = XLSX.readFile(inputExcel).Sheets[tableName]
-		const rows = XLSX.utils.sheet_to_json(worksheet,{ raw: true }) //toda planilha
+		const rows = self.read(inputExcel, tableName)
 		let outputJson = []
 
-		rows.forEach(function(rowLine){ // para cada linha
+		rows.forEach(rowLine => { // para cada linha
 			const collection = Object.entries(rowLine); 
 			let output = {}
 
-			collection.forEach(function(index) {
+			collection.forEach(index => {
 				if(index[1] != ''){ //se não tiver dados não inclui no json final
 					output[index[0]] = index[1]
 				}
@@ -21,10 +25,39 @@ export default {
 		})
 		return outputJson
 	},
-	create: (file, json)  => {
+	create: async (file, json) => {
 		const currentPath = path.resolve(__dirname, '../../')
-		fs.writeFileSync(`${currentPath}/${file}`, JSON.stringify(json))
+		const completePath = `${currentPath}/${file}`
 
-		console.log(`${currentPath}/${file}` + ' atualizado')
+		await fs.ensureFile(completePath)
+		fs.writeFileSync(completePath, JSON.stringify(json))
+		console.log(completePath + ' atualizado')
+	},
+	convertModel: (filePath, { table, collumns }) => {
+		const excelRows = self.read(filePath, table, 'sheet_to_json')
+		const noContentDefaults = {
+			'int': 0,
+			'float': 0,
+			'boolean': false,
+			'string': '',
+			'datetime': ''
+		}
+
+		const mapped = excelRows.map(excelRow => {
+			let mappedRow = {}
+			collumns.forEach(({ key, type }) => {
+				if (!excelRow[key]) mappedRow[key] = noContentDefaults[type]
+				else if (type === 'datetime') {
+					const now = SSF.parse_date_code(excelRow[key])
+					const parsed = moment({ year: now.y, month: now.m - 1, day: now.d })
+					const formated = parsed.format('DD/MM/YYYY')
+					mappedRow[key] = parsed.isValid() ? formated : noContentDefaults['datetime']
+				}
+				else if (excelRow[key] && type === 'boolean') mappedRow[key] = true
+				else mappedRow[key] = excelRow[key]
+			})
+			return mappedRow
+		})
+		return mapped
 	}
 }

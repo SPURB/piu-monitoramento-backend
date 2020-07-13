@@ -7,6 +7,9 @@ yarn-error.log*
 
 # builds
 output/*.json
+output/v1/*.json
+output/v2/*.json
+output/v2/checagem
 output/sei
 
 # Runtime data

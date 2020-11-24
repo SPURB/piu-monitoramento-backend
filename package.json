@@ -3,9 +3,10 @@
   "version": "2.0.0",
   "description": "Backend do sistema de monitormento dos PIU's - Projetos de Intervenção Urbana (Decreto nº 56.901, de 30 de março de 2016) - gestaourbana.prefeitura.sp.gov.br/piu-monitoramento",
   "scripts": {
-    "build": "npm run task:excel && npm run task:excel:v1 && npm run task:excel:v2 && npm run task:index",
+    "build": "npm run task:excel && npm run task:excel:v1 && npm run task:excel:v2 && npm run task:excel:v3 && npm run task:index",
     "task:excel:v1": "babel-node ./tasks/excel/v1",
     "task:excel:v2": "babel-node ./tasks/excel/v2",
+    "task:excel:v3": "babel-node ./tasks/excel/v3",
     "dev:task:excel:v2": "nodemon --ignore './output/v2/*.json' --exec babel-node ./tasks/excel/v2/index.debug",
     "task:excel": "babel-node ./tasks/excel",
     "task:sei": "babel-node ./tasks/sei",

@@ -72,13 +72,14 @@ const self = module.exports = {
 		return excelRows.map(excelRow => {
 			let conteudo = {}
 			if (excelRow.rev_proj) {
+				const documento_complemento = excelRow.documento_complemento === undefined ? '' : excelRow.documento_complemento
 				conteudo = {
 					id: excelRow.id,
 					id_projetos: excelRow.id_projetos,
 					id_tramitacao: excelRow.id_tramitacao,
 					id_grupo: excelRow.id_grupo,
 					id_fonte: excelRow.id_fonte,
-					documento: excelRow.documento_novo + excelRow.documento_complemento,
+					documento: excelRow.documento_novo + ' ' + documento_complemento,
 					arquivo_url: excelRow.arquivo_url,
 					evento: excelRow.evento
 				}

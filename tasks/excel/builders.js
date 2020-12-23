@@ -59,5 +59,42 @@ const self = module.exports = {
 			return mappedRow
 		})
 		return mapped
+	},
+	convertArquivo: (filePath, { table }) => {
+		const excelRows = self.read(filePath, table, 'sheet_to_json')
+		const noContentDefaults = {
+			'int': 0,
+			'float': 0,
+			'boolean': false,
+			'string': '',
+			'datetime': ''
+		}
+		return excelRows.map(excelRow => {
+			let conteudo = {}
+			if (excelRow.rev_proj) {
+				conteudo = {
+					id: excelRow.id,
+					id_projetos: excelRow.id_projetos,
+					id_tramitacao: excelRow.id_tramitacao,
+					id_grupo: excelRow.id_grupo,
+					id_fonte: excelRow.id_fonte,
+					documento: excelRow.documento_novo + excelRow.documento_complemento,
+					arquivo_url: excelRow.arquivo_url,
+					evento: excelRow.evento
+				}
+			} else {
+				conteudo = {
+					id: excelRow.id,
+					id_projetos: excelRow.id_projetos,
+					id_tramitacao: excelRow.id_tramitacao,
+					id_grupo: excelRow.id_grupo,
+					id_fonte: excelRow.id_fonte,
+					documento: excelRow.documento,
+					arquivo_url: excelRow.arquivo_url,
+					evento: excelRow.evento_ref
+				}
+			}
+			return conteudo
+		})
 	}
 }

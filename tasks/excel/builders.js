@@ -71,6 +71,10 @@ const self = module.exports = {
 		}
 		return excelRows.map(excelRow => {
 			let conteudo = {}
+			const now = SSF.parse_date_code(excelRow.data)
+			const parsed = moment({ year: now.y, month: now.m - 1, day: now.d })
+			const formated = parsed.format('DD/MM/YYYY')
+			const dataFormatada = parsed.isValid() ? formated : noContentDefaults['datetime']
 			if (excelRow.rev_proj) {
 				const documento_complemento = excelRow.documento_complemento === undefined ? '' : excelRow.documento_complemento
 				conteudo = {
@@ -79,10 +83,11 @@ const self = module.exports = {
 					id_tramitacao: excelRow.id_tramitacao,
 					id_grupo: excelRow.id_grupo,
 					id_fonte: excelRow.id_fonte,
+					data: dataFormatada,
 					documento: excelRow.documento_novo + ' ' + documento_complemento,
 					arquivo_url: excelRow.arquivo_url,
 					evento: excelRow.evento
-				}
+				}				
 			} else {
 				conteudo = {
 					id: excelRow.id,
@@ -90,6 +95,7 @@ const self = module.exports = {
 					id_tramitacao: excelRow.id_tramitacao,
 					id_grupo: excelRow.id_grupo,
 					id_fonte: excelRow.id_fonte,
+					data: dataFormatada,
 					documento: excelRow.documento,
 					arquivo_url: excelRow.arquivo_url,
 					evento: excelRow.evento_ref

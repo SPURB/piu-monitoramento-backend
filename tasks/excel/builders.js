@@ -87,7 +87,7 @@ const self = module.exports = {
 					documento: excelRow.documento_novo + ' ' + documento_complemento,
 					arquivo_url: excelRow.arquivo_url,
 					evento: excelRow.evento
-				}				
+				}
 			} else {
 				conteudo = {
 					id: excelRow.id,

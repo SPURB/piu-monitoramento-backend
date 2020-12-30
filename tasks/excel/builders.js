@@ -96,9 +96,23 @@ const self = module.exports = {
 					id_grupo: excelRow.id_grupo,
 					id_fonte: excelRow.id_fonte,
 					data: dataFormatada,
-					documento: excelRow.documento,
+					documento: excelRow.documento !== undefined ? excelRow.documento : '',
 					arquivo_url: excelRow.arquivo_url,
-					evento: excelRow.evento_ref
+					evento: excelRow.evento_ref !== undefined ? excelRow.evento_ref : excelRow.evento
+				}
+
+				if (excelRow.id === 6) {
+					console.log({
+						id: excelRow.id,
+						id_projetos: excelRow.id_projetos,
+						id_tramitacao: excelRow.id_tramitacao,
+						id_grupo: excelRow.id_grupo,
+						id_fonte: excelRow.id_fonte,
+						data: dataFormatada,
+						documento: excelRow.documento !== undefined ? excelRow.documento : '',
+						arquivo_url: excelRow.arquivo_url,
+						evento: excelRow.evento_ref !== undefined ? excelRow.evento_ref : excelRow.evento
+					})
 				}
 			}
 			return conteudo

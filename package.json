@@ -25,7 +25,7 @@
     "@babel/preset-env": "^7.9.5",
     "fs-extra": "^8.1.0",
     "nodemon": "^2.0.4",
-    "xlsx": "^0.13.3"
+    "xlsx": "^0.17.0"
   },
   "bugs": {
     "url": "https://github.com/SPURB/piu-monitoramento-backend/issues"
